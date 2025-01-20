@@ -1,0 +1,21 @@
+#test
+name: Main Taski Workflow
+
+#triggers
+on:
+  push:
+    branches:
+      -main
+
+#tasks
+jobs:
+  checkout-and-print-tree:
+    runs-on: ubuntu-latest
+    steps:
+      #get source code
+      - name: Check out repo code
+        uses: actions/checkout@v4
+      #runs "tree"
+      - name: Print project tree
+        run: tree .
+
