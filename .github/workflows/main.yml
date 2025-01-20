@@ -51,6 +51,7 @@ jobs:
         run: |
           python -m ruff check backend/
           cd backend/
+          python manage.py migrate
           python manage.py test
 
 
