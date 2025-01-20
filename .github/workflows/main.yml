@@ -15,9 +15,9 @@ jobs:
       postgres:
         image: postgres:13.10
         env:
-          POSTGRES_USER=django_user
-          POSTGRES_PASSWORD=django_user
-          POSTGRES_DB=django_db
+          POSTGRES_USER: django_user
+          POSTGRES_PASSWORD: django_user
+          POSTGRES_DB: django_db
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 1s --health-retries 5
@@ -43,11 +43,11 @@ jobs:
       #check by ruff
       - name: Lint by ruff
         env:
-          POSTGRES_USER=django_user
-          POSTGRES_PASSWORD=django_user
-          POSTGRES_DB=django_db
-          DB_HOST=127.0.0.1
-          DB_PORT=5432
+          POSTGRES_USER: django_user
+          POSTGRES_PASSWORD: django_user
+          POSTGRES_DB: django_db
+          DB_HOST: 127.0.0.1
+          DB_PORT: 5432
         run: |
           python -m ruff check backend/
           cd backend/
