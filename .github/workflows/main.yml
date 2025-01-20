@@ -1,5 +1,5 @@
 #test
-name: Main Taski Workflow
+name: Main Taski Workflow for ${{ vars.DOCUSER }}
 
 #triggers
 on: [push]
@@ -67,7 +67,7 @@ jobs:
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v3
       with:
-        username: ${{ secrets.DCUS }}
+        username: ${{ vars.DOCUSER }}
         password: ${{ secrets.DCAT }}
     #push
     - name: Build and push
@@ -75,4 +75,4 @@ jobs:
       with:
         context: ./backend/
         push: true
-        tags: ${{ secrets.DCUS }}/taski_backend:latest
+        tags: ${{ vars.DOCUSER }}/taski_backend:latest
