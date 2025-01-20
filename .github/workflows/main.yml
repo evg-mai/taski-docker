@@ -9,7 +9,7 @@ on: [push]
 
 #tasks
 jobs:
-  checkout-and-print-tree:
+  tests:
     runs-on: ubuntu-latest
     steps:
       #get source code
@@ -28,8 +28,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install ruff==0.8.0
+          pip install -r ./backend/requirements.txt
       #check by ruff
       - name: Lint by ruff
-        run: python -m ruff check backend/
+        run: |
+          python -m ruff check backend/
+          cd backend/
+          python manage.py test
 
 
