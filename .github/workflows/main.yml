@@ -2,10 +2,10 @@
 name: Main Taski Workflow
 
 #triggers
-on:
-  push:
-    branches:
-      -main
+on: [push]
+#  push:
+#    branches:
+#      -main
 
 #tasks
 jobs:
