@@ -18,4 +18,18 @@ jobs:
       #runs "tree"
       - name: Print project tree
         run: tree .
+      #install python
+      - name: Set up python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      #install pip, ruff
+      - name: Dependencies
+        run: |
+          python -m pip install -upgrade pip
+          pip install ruff==0.8.0
+      #check by ruff
+      - name: Lint by ruff
+        run: python -m ruff check backend/
+
 
