@@ -1,5 +1,5 @@
 #test
-name: Main Taski Workflow for ${{ vars.DOCUSER }}
+name: Main Taski Workflow
 
 #triggers
 on: [push]
